@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <title>Silent Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function (){
+      $('#header').load('header.html')
+    })
+
+    $(function (){
+      $('#footer').load('footer.html')
+    })
+
+  </script>
+  <style>
+    #privacy h1 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    #privacy p {
+      font-size: 18px;
+      margin: 30px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+<!------------- Header ------------------->
+
+<div id="header"></div>
+
+<!------------- Privacy ------------------->
+<div id="privacy">
+<h1>Privacy Policy</h1>
+<p>
+  Our library is committed to protecting the privacy of our users. This policy outlines the types of personal information we collect and how it is used and protected.
+</p>
+<p>
+  When you use our services, we may collect and store information about you, including your name, address, and contact information. This information is used to provide you with the services you request, such as reserving and checking out books.
+</p>
+<p>
+  We may also collect information about your use of our services, such as your search history and the books you have checked out. This information is used to improve the services we offer and to personalize your experience.
+</p>
+<p>
+  Our library takes steps to protect the security of your personal information, including using encryption technologies and implementing strict access controls. However, we cannot guarantee that your information will always be secure, and we encourage you to take steps to protect your information, such as using strong passwords and keeping your computer and mobile devices secure.
+</p>
+<p>
+  If you have any questions about our privacy policy or how we use your personal information, please contact us at [library's email].
+</p>
+</div>
+
+<!------------- Footer ---------------->
+
+<div id="footer"></div>
+
+<!----------------Javscript-------------->
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var username = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    if (username !== "aloka" || password !== "aloka") {
+      alert("Incorrect User Name or Password");
+      return false;
+    }
+    if (username !== "aloka" && password !== "aloka") {
+      alert("Login Successful");
+    }
+    sessionStorage.setItem("username", username);
+    sessionStorage.setItem("password", password);
+    window.location.href = "admin.html";
+  });
+
+</script>
+</body>
+</html>

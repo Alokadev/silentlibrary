@@ -1,0 +1,230 @@
+<script>
+  if (sessionStorage.getItem("username") === null) {
+    window.location.href = "index.html"
+  }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <title>Silent Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(function (){
+      $('#header').load('header.html')
+    })
+
+    $(function (){
+      $('#footer').load('footer.html')
+    })
+
+    $( function() {
+      $( "#tabs" ).tabs();
+
+      // store the current active tab index in session storage
+      $("#tabs").on("tabsactivate", function(event, ui) {
+        sessionStorage.setItem("activeTab", ui.newTab.index());
+      });
+
+      // retrieve the active tab index from session storage and set it back
+      var activeTab = sessionStorage.getItem("activeTab");
+      if (activeTab) {
+        $("#tabs").tabs("option", "active", activeTab);
+      }
+
+    } );
+  </script>
+</head>
+<body>
+
+<!------------- Header ------------------->
+
+<div id="header"></div>
+
+<!------------- Admin ------------------->
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">User Registration</a></li>
+    <li><a href="#tabs-2">Book List</a></li>
+    <li><a href="#tabs-3">Borrowers List</a></li>
+    <li><a href="#tabs-4">Event List</a></li>
+    <li><a href="#tabs-5">Event - Inq</a></li>
+  </ul>
+  <div id="tabs-1">
+    <div class="container">
+      <div class="registration">
+        <h1>User Registration</h1>
+        <br />
+        <fieldset>
+          <legend>
+            Users List
+          </legend>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>User Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Status</th>
+              <th>Membership</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tblbody">
+            </tbody>
+          </table>
+        </fieldset>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="tabs-2">
+
+    <div class="container">
+      <div class="registration">
+        <h1>Book Registration</h1>
+        <br />
+        <fieldset>
+          <legend>
+            Book List
+          </legend>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Book Id</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN</th>
+              <th>Description</th>
+              <th>Cover Image</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tblbody1">
+            </tbody>
+          </table>
+        </fieldset>
+      </div>
+    </div>
+
+  </div>
+  <div id="tabs-3">
+
+    <div class="container">
+      <div class="registration">
+        <h1>Book Registration</h1>
+        <br />
+        <fieldset>
+          <legend>
+            Borrow List
+          </legend>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Borrow Id</th>
+              <th>Book Id</th>
+              <th>Title</th>
+              <th>ISBN</th>
+              <th>User Id</th>
+              <th>User Name</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tblbody2">
+            </tbody>
+          </table>
+        </fieldset>
+      </div>
+    </div>
+    <div id="suggestions"></div>
+    <div id="suggestions1"></div>
+  </div>
+
+
+
+  <div id="tabs-4">
+
+    <div class="container">
+      <h1>Event Registration</h1>
+      <br />
+      <fieldset>
+        <legend>
+          Event List
+        </legend>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Event Id</th>
+            <th>Event Name</th>
+            <th>Event Description</th>
+            <th>Date and Time</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="tblbody3">
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+
+  </div>
+
+  <div id="tabs-5">
+
+    <div class="container">
+      <h1>Event Registration</h1>
+      <br />
+      <fieldset>
+        <legend>
+          Event List
+        </legend>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Inq Id</th>
+            <th>Inq Name</th>
+            <th>Inq Email</th>
+            <th>Question</th>
+            <th>Event</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="tblbody4">
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+
+  </div>
+
+</div>
+
+<!------------- Footer ---------------->
+
+<div id="footer"></div>
+
+<!----------------Javscript-------------->
+
+<script src="user-registration.js"></script>
+<script src="book-registration.js"></script>
+<script src="book-borrow.js"></script>
+<script src="event-registration.js"></script>
+<script src="event-inq.js"></script>
+<script>
+
+
+</script>
+</body>
+</html>

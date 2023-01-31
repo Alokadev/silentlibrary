@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <title>Silent Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function (){
+      $('#header').load('header.html')
+    })
+
+    $(function (){
+      $('#footer').load('footer.html')
+    })
+  </script>
+</head>
+<body>
+
+<!------------- Header ------------------->
+
+<div id="header"></div>
+
+<!------------- Login ------------------->
+
+<div id="login-form-wrap">
+  <h2>Login Here..</h2>
+  <form id="login-form">
+    <p>
+      <input type="text" id="name" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Login">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p><a href="user-registration.html">Not a member? </a><p>
+  </div>
+</div>
+
+<!------------- Footer ---------------->
+
+<div id="footer"></div>
+
+<!----------------Javscript-------------->
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var username = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    if (username !== "aloka" || password !== "aloka") {
+      alert("Incorrect User Name or Password");
+      return false;
+    }
+    if (username !== "aloka" && password !== "aloka") {
+      alert("Login Successful");
+    }
+    sessionStorage.setItem("username", username);
+    sessionStorage.setItem("password", password);
+    window.location.href = "admin.html";
+  });
+
+</script>
+</body>
+</html>

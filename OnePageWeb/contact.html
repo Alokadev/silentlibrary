@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <title>Silent Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="user-registration.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function (){
+      $('#header').load('header.html')
+    })
+
+    $(function (){
+      $('#footer').load('footer.html')
+    })
+  </script>
+</head>
+<body>
+
+<!------------- Header ------------------->
+
+<div id="header"></div>
+
+<!------------- Registration ------------------->
+
+<h3>Library Event Inquiry</h3>
+<form id="publicregistration">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" required>
+
+  <label for="question">Questions:</label>
+  <textarea id="question" name="question" rows="4" cols="38" required></textarea>
+
+  <label for="inq-event">Event:</label>
+  <select id="inq-event" name="inq-event" required>
+    <option value="">Select an event</option>
+  </select>
+
+  <input type="submit" value="Submit" class="hero-btn" onclick="addInq()">
+</form>
+
+
+<!------------- Footer ---------------->
+
+<div id="footer"></div>
+
+<!----------------Javscript-------------->
+
+<script>
+
+  window.addEventListener("load", function() {
+    // Get the event data from local storage (assuming eventData is a valid JSON object)
+    var eventData = JSON.parse(localStorage.getItem("eventData"));
+
+    // Get the select element
+    var select = document.getElementById("inq-event");
+
+    // Loop through the event data and add each event name as an option to the select element
+    for (var i = 0; i < eventData.length; i++) {
+      var option = document.createElement("option");
+      option.value = eventData[i].name;
+      option.text = eventData[i].name;
+      select.add(option);
+    }
+  });
+
+</script>
+
+<script src="contact.js"></script>
+</body>
+</html>

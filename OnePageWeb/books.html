@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="events.css">
+    <script>
+        // Load book data from local storage
+        const bookData = JSON.parse(localStorage.getItem("bookData"));
+
+        // Function to display books based on the search input
+        function displayBooks() {
+            let searchTerm = document.getElementById("search").value;
+            let table = document.getElementById("booksTable");
+            table.innerHTML = `
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Description</th>
+        </tr>
+      `;
+            for (let i = 0; i < bookData.length; i++) {
+                if (bookData[i].bTitle.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    let row = table.insertRow(-1);
+                    let titleCell = row.insertCell(0);
+                    let authorCell = row.insertCell(1);
+                    let isbnCell = row.insertCell(2);
+                    let descCell = row.insertCell(3);
+                    titleCell.innerHTML = bookData[i].bTitle;
+                    authorCell.innerHTML = bookData[i].bAuthor;
+                    isbnCell.innerHTML = bookData[i].bIsbn;
+                    descCell.innerHTML = bookData[i].bDesc;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="index.html">Back to Home</a>
+
+<h3>Book Catalogue</h3>
+
+<input type="text" id="search" oninput="displayBooks()" placeholder="Search by book title...">
+<table id="booksTable">
+</table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <title>Silent Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="events.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function (){
+      $('#header').load('header.html')
+    })
+
+    $(function (){
+      $('#footer').load('footer.html')
+    })
+  </script>
+</head>
+<body>
+
+<!------------- Header ------------------->
+
+<div id="header"></div>
+
+<!------------- Login ------------------->
+
+<table id="eventsTable">
+  <tr>
+    <th>Event Name</th>
+    <th>Event Description</th>
+    <th>Date and Time</th>
+  </tr>
+</table>
+
+<!------------- Footer ---------------->
+
+<div id="footer"></div>
+
+<!----------------Javscript-------------->
+
+<script>
+
+  // Retrieve the event data from local storage
+  var eventData = localStorage.getItem("eventData");
+
+  // Parse the event data as a JSON object
+  eventData = JSON.parse(eventData);
+
+  // Get the table element to append the events
+  var table = document.getElementById("eventsTable");
+
+  // Loop through the events and add each event to the table
+  for (var i = 0; i < eventData.length; i++) {
+    var event = eventData[i];
+
+    var row = table.insertRow();
+    var nameCell = row.insertCell(0);
+    var descCell = row.insertCell(1);
+    var dateTimeCell = row.insertCell(2);
+
+    nameCell.innerHTML = event.name;
+    descCell.innerHTML = event.desc;
+    dateTimeCell.innerHTML = event.dateTime;
+  }
+
+</script>
+
+</body>
+</html>

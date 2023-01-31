@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Book Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Search for a book...">
+  <button id="search-button">Search</button>
+</div>
+<div id="book-list"></div>
+
+<script>
+  // Get the list of books from local storage
+  var bookData = JSON.parse(localStorage.getItem("bookData"));
+
+  // Display the list of books on the page
+  function displayBooks(books) {
+    var bookList = $("#book-list");
+    bookList.empty();
+    books.forEach(function(book) {
+      var bookElement = $("<div>" + book.bTitle + " by " + book.bAuthor + "</div>");
+      bookList.append(bookElement);
+    });
+  }
+
+  displayBooks(bookData);
+
+  // Add an event listener for the search button
+  $("#search-button").click(function() {
+    var searchTerm = $("#search-input").val().toLowerCase();
+    var searchResults = bookData.filter(function(book) {
+      return book.bTitle.toLowerCase().indexOf(searchTerm) !== -1;
+    });
+    displayBooks(searchResults);
+  });
+</script>
+
+</body>
+
+</html>

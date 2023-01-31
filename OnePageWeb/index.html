@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Silent Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function (){
+            $('#header').load('header.html')
+        })
+
+        $(function (){
+            $('#footer').load('footer.html')
+        })
+    </script>
+</head>
+<body>
+
+    <!------------- Header ------------------->
+
+    <div id="header"></div>
+
+    <!------------- Books ------------------->
+
+    <section class="books">
+        <h1>Books to Read</h1>
+        <p>List of Books</p>
+
+        <div class="row slider">
+            <div class="books-col slide">
+                <img src="https://i.pinimg.com/564x/bf/73/54/bf735417ecdc3b5ac44807a22c1eaff5.jpg">
+                <h3>Jungle Book</h3>
+                <p>The Jungle Book is a story about a boy named Mowgli who is raised by wolves in the jungle and has adventures with various animal friends,
+                    including a bear named Baloo and a panther named Bagheera.</p>
+            </div>
+
+            <div class="books-col slide">
+                <img src="https://i.pinimg.com/564x/0e/c0/9e/0ec09efe5611dbc9d58a6a4d8b8b58df.jpg">
+                <h3>To Kill a Mockingbird</h3>
+                <p>"To Kill a Mockingbird" is a novel by Harper Lee published in 1960. The book is set in the 1930s in the fictional Maycomb
+                    County, Alabama and follows the story of Scout Finch.</p>
+            </div>
+
+            <div class="books-col slide">
+                <img src="https://i.pinimg.com/564x/66/5a/e3/665ae3e1640a4175602e488e3e41ba25.jpg">
+                <h3>The Great Gatsby</h3>
+                <p>The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island,
+                    near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire
+                    Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.</p>
+            </div>
+
+            <div class="books-col slide">
+                <img src="https://i.pinimg.com/564x/89/34/41/893441537e612851d1e13e57f34e7acc.jpg">
+                <h3>Pride and Prejudice</h3>
+                <p>Pride and Prejudice is the story of a young woman in the 1800's, Elizabeth Bennet. The Bennet family has five daughters,
+                    and in an age where the only thing women could do was marry rich, all the girls are pressured to find wealthy matches to
+                    secure the family's comfort.</p>
+            </div>
+
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </section>
+
+
+    <!---------------- Events ------------------>
+
+    <section class="events">
+
+        <h1>Events of Season</h1>
+        <p>A library event is an organized activity or program that takes place within a library or is hosted by a library.
+            These events can include book clubs, author readings, workshops, lectures, and other educational or cultural activities.
+            The purpose of library events is to provide patrons with opportunities to learn, engage with literature and other resources,
+            and connect with their community.</p>
+
+        <div class="row">
+            <div class="events-col">
+                <h3>Author Talk Series</h3>
+                <p>
+                    A series of events where local and visiting authors come to the library to discuss their work, answer questions, and sign copies of their books.
+                </p>
+            </div>
+
+            <div class="events-col">
+                <h3>Literary Festivals</h3>
+                <p>
+                    Festivals that celebrate the written word and bring together authors, poets, and other literary figures.
+                    These festivals offer the opportunity for attendees to engage with writers, attend readings and signings,
+                    and participate in writing workshops.
+                </p>
+            </div>
+
+            <div class="events-col">
+                <h3>Career Networking Events</h3>
+                <p>
+                    events that connect job seekers with potential employers and recruiters.
+                    These events can include resume workshops, mock interviews, and speed networking sessions.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="cta">
+        <h1>Contacts Us for Learn More</h1>
+        <a href="" class="hero-btn">CONTACT US</a>
+    </section>
+
+<!------------- Footer ---------------->
+
+    <div id="footer"></div>
+
+    <!----------------Javscript-------------------------------------------------------------------------------------------------------->
+<script src="script.js"></script>
+</body>
+</html>
